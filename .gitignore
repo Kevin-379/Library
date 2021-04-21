@@ -3,3 +3,5 @@ library_venv/
 __pycache__
 materialize.css
 materialize.js
+.env
+decorators.py
