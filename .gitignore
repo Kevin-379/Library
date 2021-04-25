@@ -4,4 +4,5 @@ __pycache__
 materialize.css
 materialize.js
 .env
-decorators.py
+*.docx
+~WRL2136.tmp

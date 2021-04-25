@@ -3,10 +3,6 @@
 {% load socialaccount %}
 {% block title %}Register{% endblock %}
 {% block content %}
-	<script type="text/javascript">
-        console.log('{{ is_error }}');
-        console.log('{{ error }}');
-	</script>
 	{% if is_error %}
 		<div id="modal1" class="modal">
 			<div class="modal-content">

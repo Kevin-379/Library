@@ -1,4 +1,23 @@
 {% extends "library/base.html" %}
 {% block title %}Profile{% endblock %}
 {% block content %}
+	<div class="container blue-grey darken-3 z-depth-1 white-text">
+		<div class="row center">
+			<div class="col s12 m6 offset-m3">
+				<div class="card teal">
+					<div class="card-image">
+						<img style="width: 200px; align-self: center;"
+							 src='{{ user.profile.profile_pic.url }}'/>
+						<span class="card-title">{{ user.username }}</span>
+					</div>
+					<div class="card-content">
+						<h4>{{ user.email }}</h4>
+						<a class="waves-effect waves-light amber btn-small" href="{% url 'update' %}">Update your profile</a>
+{#						<a class="waves-effect waves-light red btn-small" href="{% url 'book_delete' book.id %}">Delete</a>#}
+							{#									<a href="{% url 'password_reset' %}">Reset Password</a>#}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

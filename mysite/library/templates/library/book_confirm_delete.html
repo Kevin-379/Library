@@ -1,0 +1,23 @@
+{% extends "library/base.html" %}
+{% block title %}Delete A Book{% endblock %}
+{% block content %}
+	<div class="container blue-grey darken-3 z-depth-1 white-text" style="border-radius: 10px;">
+		<div class="row">
+			<div class="col s12 m6 offset-m3 center-align">
+				<div class="card teal">
+					<div class="card-content">
+						<form method="post">
+							{% csrf_token %}
+							<span class="card-title">Delete Post</span>
+							<h4>Are you sure you want to delete "{{ object.title }}"?</h4>
+							<div class="card-action">
+								<button type="submit" class="btn waves-effect waves-light red">Yes, Delete</button>
+								<a class="btn waves-effect waves-light" href="{% url 'book_detail' object.id %}">No, cancel</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

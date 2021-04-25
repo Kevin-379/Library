@@ -1,0 +1,56 @@
+{% extends "library/base.html" %}
+{% load library_extras %}
+{% block title %}Book details{% endblock %}
+{% block content %}
+	<div class="container blue-grey darken-2 z-depth-1 white-text" style="border-radius: 10px;">
+		<div class="row">
+			<div class="col s12 m6 offset-m3 center-align">
+				<table class="centered">
+					<tbody>
+					<tr>
+						<th>title:</th>
+						<td>{{ object.title }}</td>
+					</tr>
+					<tr>
+						<th>author:</th>
+						<td>{{ object.author }}</td>
+					</tr>
+					<tr>
+						<th>publisher:</th>
+						<td>{{ object.publisher }}</td>
+					</tr>
+					<tr>
+						<th>genre:</th>
+						<td>{{ object.genre }}</td>
+					</tr>
+					<tr>
+						<th>summary:</th>
+						<td>{{ object.summary }}</td>
+					</tr>
+					<tr>
+						<th>ISBN:</th>
+						<td>{{ object.ISBN }}</td>
+					</tr>
+					<tr>
+						<th>location:</th>
+						<td>{{ object.location }}</td>
+					</tr>
+					<tr>
+						<th>availability:</th>
+						<td>{{ object.availability }}</td>
+					</tr>
+					</tbody>
+				</table>
+						{% if user.is_authenticated %}
+							<div class="card-action">
+								<a class="waves-effect waves-light orange btn-small" href="{% url 'book_borrow' book.id %}">Borrow</a>
+							{% if request.user|has_group:'librarian' %}
+								<a class="waves-effect waves-light amber btn-small" href="{% url 'book_update' book.id %}">Update</a>
+								<a class="waves-effect waves-light red btn-small" href="{% url 'book_delete' book.id %}">Delete</a>
+							{% endif %}
+							</div>
+						{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
